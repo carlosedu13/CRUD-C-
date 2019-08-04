@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,9 @@ namespace WindowsFormsApp1
 {
     public partial class CadastroClientes : Form
     {
-        public CadastroClientes() => InitializeComponent();
-
-        public CadastroClientes(IContainer components, TextBox idTextBox, Label label1, TextBox nameTextBox, Label label2, Label label3, TextBox addressTextBox, TextBox postalZipTextBox, Label label4, Label label5, Label label6, Label label7, TextBox districtTextBox, TextBox cityTextBox, TextBox ufTextBox, TextBox textBox8, Label mobileTextBox, Label label9, TextBox textBox9, Button searchBtn, Button saveBtn, Button updateBtn, Button deleteBtn)
+        public CadastroClientes(IContainer components, TextBox idTextBox, Label label1, TextBox nameTextBox, Label label2, Label label3, TextBox addressTextBox, Label label4, Label label5, Label label6, Label label7, TextBox districtTextBox, TextBox cityTextBox, TextBox ufTextBox, Label mobileTextBox, Label label9, TextBox textBox9, Button searchBtn, Button saveBtn, Button updateBtn, Button deleteBtn, MaskedTextBox phoneTextBox, MaskedTextBox postalZipTextBox)
         {
+            InitializeComponent();
             this.components = components;
             IdTextBox = idTextBox;
             this.label1 = label1;
@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
             this.label2 = label2;
             this.label3 = label3;
             AddressTextBox = addressTextBox;
-            PostalZipTextBox = postalZipTextBox;
             this.label4 = label4;
             this.label5 = label5;
             this.label6 = label6;
@@ -31,7 +30,6 @@ namespace WindowsFormsApp1
             DistrictTextBox = districtTextBox;
             CityTextBox = cityTextBox;
             UfTextBox = ufTextBox;
-            this.textBox8 = textBox8;
             MobileTextBox = mobileTextBox;
             this.label9 = label9;
             this.textBox9 = textBox9;
@@ -39,10 +37,23 @@ namespace WindowsFormsApp1
             SaveBtn = saveBtn;
             UpdateBtn = updateBtn;
             DeleteBtn = deleteBtn;
+            PhoneTextBox = phoneTextBox;
+            PostalZipTextBox = postalZipTextBox;
+
+            PhoneTextBox.Enabled = false;
+            PostalZipTextBox.Enabled = false;
+            MobileTextBox.Enabled = false;
+            UfTextBox.Enabled = false;
+            CityTextBox.Enabled = false;
+            DistrictTextBox.Enabled = false;
+            AddressTextBox.Enabled = false;
+            NameTextBox.Enabled = false;
+            IdTextBox.Enabled = false;
         }
 
-        
-
+        readonly SqlConnection SqlConnection = null;
+        private string ConnectionString = String.Empty;
+        private string SqlCommand = String.Empty;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -67,5 +78,6 @@ namespace WindowsFormsApp1
         {
 
         }
+
     }
 }

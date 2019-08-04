@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.PostalZipTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.DistrictTextBox = new System.Windows.Forms.TextBox();
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.UfTextBox = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.MobileTextBox = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -50,6 +48,8 @@
             this.SaveBtn = new System.Windows.Forms.Button();
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.PhoneTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.PostalZipTextBox = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // IdTextBox
@@ -103,13 +103,6 @@
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(551, 23);
             this.AddressTextBox.TabIndex = 5;
-            // 
-            // PostalZipTextBox
-            // 
-            this.PostalZipTextBox.Location = new System.Drawing.Point(26, 196);
-            this.PostalZipTextBox.Name = "PostalZipTextBox";
-            this.PostalZipTextBox.Size = new System.Drawing.Size(132, 23);
-            this.PostalZipTextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -172,13 +165,6 @@
             this.UfTextBox.Size = new System.Drawing.Size(57, 23);
             this.UfTextBox.TabIndex = 13;
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(26, 255);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(158, 23);
-            this.textBox8.TabIndex = 14;
-            // 
             // MobileTextBox
             // 
             this.MobileTextBox.AutoSize = true;
@@ -240,9 +226,9 @@
             this.UpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpdateBtn.Font = new System.Drawing.Font("Roboto", 7.8F);
-            this.UpdateBtn.Location = new System.Drawing.Point(438, 254);
+            this.UpdateBtn.Location = new System.Drawing.Point(423, 254);
             this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(66, 22);
+            this.UpdateBtn.Size = new System.Drawing.Size(81, 22);
             this.UpdateBtn.TabIndex = 20;
             this.UpdateBtn.Text = "Atualizar";
             this.UpdateBtn.UseVisualStyleBackColor = false;
@@ -254,7 +240,7 @@
             this.DeleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeleteBtn.Font = new System.Drawing.Font("Roboto", 7.8F);
-            this.DeleteBtn.Location = new System.Drawing.Point(367, 253);
+            this.DeleteBtn.Location = new System.Drawing.Point(351, 254);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(66, 22);
             this.DeleteBtn.TabIndex = 21;
@@ -262,12 +248,30 @@
             this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.Location = new System.Drawing.Point(26, 256);
+            this.PhoneTextBox.Mask = "(00)00000-0000";
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(158, 23);
+            this.PhoneTextBox.TabIndex = 22;
+            // 
+            // PostalZipTextBox
+            // 
+            this.PostalZipTextBox.Location = new System.Drawing.Point(26, 193);
+            this.PostalZipTextBox.Mask = "00000-000";
+            this.PostalZipTextBox.Name = "PostalZipTextBox";
+            this.PostalZipTextBox.Size = new System.Drawing.Size(137, 23);
+            this.PostalZipTextBox.TabIndex = 23;
+            // 
             // CadastroClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(606, 357);
+            this.Controls.Add(this.PostalZipTextBox);
+            this.Controls.Add(this.PhoneTextBox);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.UpdateBtn);
             this.Controls.Add(this.SaveBtn);
@@ -275,7 +279,6 @@
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.MobileTextBox);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.UfTextBox);
             this.Controls.Add(this.CityTextBox);
             this.Controls.Add(this.DistrictTextBox);
@@ -283,7 +286,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.PostalZipTextBox);
             this.Controls.Add(this.AddressTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -308,7 +310,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.TextBox PostalZipTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -316,7 +317,6 @@
         private System.Windows.Forms.TextBox DistrictTextBox;
         private System.Windows.Forms.TextBox CityTextBox;
         private System.Windows.Forms.TextBox UfTextBox;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label MobileTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox9;
@@ -324,6 +324,8 @@
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.MaskedTextBox PhoneTextBox;
+        private System.Windows.Forms.MaskedTextBox PostalZipTextBox;
     }
 }
 
