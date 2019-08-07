@@ -179,7 +179,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Roboto", 7.8F);
-            this.label9.Location = new System.Drawing.Point(193, 17);
+            this.label9.Location = new System.Drawing.Point(178, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 17);
             this.label9.TabIndex = 16;

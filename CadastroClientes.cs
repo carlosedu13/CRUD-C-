@@ -39,21 +39,10 @@ namespace WindowsFormsApp1
             DeleteBtn = deleteBtn;
             PhoneTextBox = phoneTextBox;
             PostalZipTextBox = postalZipTextBox;
-
-            PhoneTextBox.Enabled = false;
-            PostalZipTextBox.Enabled = false;
-            MobileTextBox.Enabled = false;
-            UfTextBox.Enabled = false;
-            CityTextBox.Enabled = false;
-            DistrictTextBox.Enabled = false;
-            AddressTextBox.Enabled = false;
-            NameTextBox.Enabled = false;
-            IdTextBox.Enabled = false;
         }
 
         readonly SqlConnection SqlConnection = null;
-        private string ConnectionString = String.Empty;
-        private string SqlCommand = String.Empty;
+        private string ConnectionString = @"Server=.\sqlexpress;Database=bdcadastro;Trusted_Connection=True;";
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -61,7 +50,37 @@ namespace WindowsFormsApp1
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            string SQLQuery = "INSERT INTO CLIENTE (NOME, ENDERECO, CEP, BAIRRO, CIDADE, UF, TELEFONE) " + $"VALUES ('{NameTextBox.Text}', '{AddressTextBox.Text}', '{PostalZipTextBox.Text}', '{DistrictTextBox.Text}', '{CityTextBox.Text}', '{UfTextBox.Text}', '{MobileTextBox.Text}') " ;
+            SqlConnection Connection = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(SQLQuery, Connection);
+            cmd.CommandType = CommandType.Text;
+            Connection.Open();
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    MessageBox.Show("Cadastro realizado com sucesso");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                Connection.Close();
+            }
 
+            PhoneTextBox.Text = "";
+            PostalZipTextBox.Text = "";
+            MobileTextBox.Text = "";
+            UfTextBox.Text = "";
+            CityTextBox.Text = "";
+            DistrictTextBox.Text = "";
+            AddressTextBox.Text = "";
+            NameTextBox.Text = "";
+            IdTextBox.Text = "";
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
